@@ -1,6 +1,6 @@
 import {
-    Component, Input, Output, EventEmitter, ContentChildren, QueryList,
-    TemplateRef, ContentChild, ViewChildren, OnInit
+	Component, Input, Output, EventEmitter, ContentChildren, QueryList,
+	TemplateRef, ContentChild, ViewChildren, OnInit
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
@@ -15,10 +15,10 @@ import { TABLE_STYLE } from "./table.style";
 
 
 @Component({
-    moduleId: module.id,
-  selector: 'data-table',
-  template: TABLE_TEMPLATE,
-  styles: [TABLE_STYLE]
+	moduleId: module.id,
+	selector: 'data-table',
+	template: TABLE_TEMPLATE,
+	styles: [TABLE_STYLE]
 })
 export class DataTable implements DataTableParams, OnInit {
 
