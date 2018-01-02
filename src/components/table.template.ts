@@ -3,7 +3,7 @@ export const TABLE_TEMPLATE = `
     <data-table-header *ngIf="header"></data-table-header>
 
     <div class="data-table-box">
-        <table class="table table-condensed table-bordered data-table">
+        <table class="table data-table">
             <thead>
                 <tr>
                     <th scope="col" [hide]="!expandColumnVisible" class="expand-column-header">
@@ -23,10 +23,8 @@ export const TABLE_TEMPLATE = `
                         <span *ngIf="!column.headerTemplate" [textContent]="column.header"></span>
                         <span *ngIf="column.headerTemplate" [ngTemplateOutlet]="column.headerTemplate" [ngOutletContext]="{column: column}"></span>
                         <span class="column-sort-icon" *ngIf="column.sortable">
-                            <span class="glyphicon glyphicon-sort column-sortable-icon" [hide]="column.property === sortBy"></span>
-                            <span [hide]="column.property !== sortBy">
-                                 <span class="glyphicon" [ngClass]="{'glyphicon-triangle-top': !sortAsc, 'glyphicon-triangle-bottom': sortAsc}"></span>
-                            </span>
+                             <i [hide]="column.property === sortBy" class="fa fa-sort column-sortable-icon" aria-hidden="true"></i>
+                             <i [hide]="column.property !== sortBy" class="fa" [ngClass]="{'fa-sort-asc': sortAsc, 'fa-sort-desc': !sortAsc}" aria-hidden="true"></i>
                         </span>
                         <span *ngIf="column.resizable" class="column-resize-handle" (mousedown)="resizeColumnStart($event, column, th)"></span>
                     </th>
@@ -55,11 +53,6 @@ export const TABLE_TEMPLATE = `
         <div class="loading-cover" *ngIf="showReloading && reloading"></div>
     </div>
 
-    <data-table-pagination
-        *ngIf="pagination"
-        [show_range]="pagination_range"
-        [show_limit]="pagination_limit"
-        [show_input]="pagination_input"
-        [show_numbers]="pagination_numbers"></data-table-pagination>
+    <data-table-pagination *ngIf="pagination"></data-table-pagination>
 </div>
 `;

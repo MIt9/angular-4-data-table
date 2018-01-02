@@ -1,6 +1,6 @@
 ## Angular 4 Data Table
 
-This is fork of package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
+It is fork of this [package](https://github.com/MIt9/angular-4-data-table).
 
 A simple Angular 4 data table, with built-in solutions for features including:
 
@@ -10,29 +10,25 @@ A simple Angular 4 data table, with built-in solutions for features including:
 * expandable rows
 * column resizing
 * selecting visible columns
+* accessibility (basic)
+
+It's based on Bootstrap 4 and Font Awesome, so you need them in the application using it.
 
 The component can be used not just with local data, but remote resources too: for example if the sorting and paging happen in the database.
 
-The templates use bootstrap CSS class names, so the component requires a bootstrap .css file to be present in the application using it.
+The templates use bootstrap CSS class names, 
 
-Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its [code](https://github.com/MIt9/angular-4-data-table-demo) for examples of how to use it. 
-
-Demo for pagination with seperate page numbers will be added soon
-
-## Installing:
+## Installing
 `npm install angular-4-data-table --save`
 
 ## Production (Minification)
-Some times this can cause problems.  
-To fix it use import like this
+Some times can be some problam with it. to fix it use import like this
 
 `import { DataTableModule } from 'angular-4-data-table';`
 
 and for production build use
 
 `ng build --prod --aot=false`
-
- ### Added numerical pagination support with 2 next and previous links 
   
-#### Licensing
+## Licensing
 MIT License

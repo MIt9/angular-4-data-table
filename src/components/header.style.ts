@@ -19,6 +19,7 @@ export const HEADER_STYLE = `
 }
 .column-selector-box {
     box-shadow: 0 0 10px lightgray;
+    background: white;
     width: 150px;
     padding: 10px;
     position: absolute;

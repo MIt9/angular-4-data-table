@@ -5,12 +5,12 @@ export const HEADER_TEMPLATE = `
         <button type="button" class="btn btn-default btn-sm refresh-button"
             (click)="dataTable.reloadItems()" 
             [attr.aria-label]="dataTable.translations.headerReload" [title]="dataTable.translations.headerReload">
-            <span class="glyphicon glyphicon-refresh"></span>
+            <i class="fa fa-refresh" aria-hidden="true"></i>
         </button>
         <button type="button" class="btn btn-default btn-sm column-selector-button" [class.active]="columnSelectorOpen"
             (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" 
             [attr.aria-label]="dataTable.translations.headerColumnSelector" [title]="dataTable.translations.headerColumnSelector">
-            <span class="glyphicon glyphicon-list"></span>
+            <i class="fa fa-list" aria-hidden="true"></i>
         </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
             <div *ngIf="columnSelectorOpen" class="column-selector-box panel panel-default">

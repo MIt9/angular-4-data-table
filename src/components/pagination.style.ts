@@ -11,7 +11,7 @@ export const PAGINATION_STYLE = `
 .pagination-controllers {
     float: right;
 }
-.pagination-controllers input {
+.pagination-controllers select {
     min-width: 60px;
     /*padding: 1px 0px 0px 5px;*/
     text-align: right;
@@ -20,7 +20,7 @@ export const PAGINATION_STYLE = `
 .pagination-limit {
     margin-right: 25px;
     display: inline-table;
-    width: 150px;
+    width: 170px;
 }
 .pagination-pages {
     display: inline-block;
@@ -37,6 +37,7 @@ export const PAGINATION_STYLE = `
 .pagination-firstpage,
 .pagination-lastpage {
     vertical-align: top;
+    cursor: pointer;
 }
 .pagination-reload {
     color: gray;

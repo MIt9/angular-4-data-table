@@ -12,7 +12,7 @@ export const ROW_TEMPLATE = `
     <td [hide]="!dataTable.expandColumnVisible">
         <div tabindex="0" role="button" (click)="expanded = !expanded; $event.stopPropagation()" class="row-expand-button"
             [attr.aria-expanded]="expanded" [title]="dataTable.translations.expandRow" [attr.aria-label]="dataTable.translations.expandRow">
-            <span class="glyphicon" [ngClass]="{'glyphicon-triangle-right': !expanded, 'glyphicon-triangle-bottom': expanded}" aria-hidden="true"></span>
+            <i [ngClass]="{'fa-caret-right': !expanded, 'fa-caret-down': expanded}" class="fa fa-lg" aria-hidden="true"></i>
         </div>
     </td>
     <td [hide]="!dataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>

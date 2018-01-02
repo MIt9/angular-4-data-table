@@ -1,6 +1,6 @@
 export const PAGINATION_TEMPLATE = `
 <div class="pagination-box">
-    <div class="pagination-range" *ngIf="show_range">
+    <div class="pagination-range">
         {{dataTable.translations.paginationRange}}:
         <span [textContent]="dataTable.offset + 1"></span>
         -
@@ -9,18 +9,22 @@ export const PAGINATION_TEMPLATE = `
         <span [textContent]="dataTable.itemCount"></span>
     </div>
     <div class="pagination-controllers">
-        <div class="pagination-limit" *ngIf="show_limit">
+        <div class="pagination-limit">
             <div class="input-group">
                 <span class="input-group-addon">{{dataTable.translations.paginationLimit}}:</span>
-                <input #limitInput type="number" class="form-control" min="1" step="1"
-                       [ngModel]="limit" (blur)="limit = limitInput.value"
-                       (keyup.enter)="limit = limitInput.value" (keyup.esc)="limitInput.value = limit"/>
+                <select class="form-control" [(ngModel)]="limit">
+					          <option *ngFor="let l of limits" [value]="l">{{l}}</option>
+			          </select>
             </div>
         </div>
         <div class=" pagination-pages">
-            <button [disabled]="dataTable.offset <= 0" (click)="pageFirst()" class="btn btn-default pagination-firstpage">&laquo;</button>
-            <button [disabled]="dataTable.offset <= 0" (click)="pageBack()" class="btn btn-default pagination-prevpage">&lsaquo;</button>
-            <div class="pagination-page" *ngIf="show_input">
+            <button [disabled]="dataTable.offset <= 0" (click)="pageFirst()" class="btn btn-default pagination-firstpage">
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+			</button>
+            <button [disabled]="dataTable.offset <= 0" (click)="pageBack()" class="btn btn-default pagination-prevpage">
+            	<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</button>
+            <div class="pagination-page">
                 <div class="input-group">
                     <input #pageInput type="number" class="form-control" min="1" step="1" max="{{maxPage}}"
                            [ngModel]="page" (blur)="page = pageInput.value"
@@ -31,16 +35,12 @@ export const PAGINATION_TEMPLATE = `
                     </div>
                 </div>
             </div>
-            <button *ngIf="hasPrevious(maxPage,page)" [disabled]="true" (click)="false" class="btn btn-default hasPrevious">...</button>
-            <div class="pagination-page" *ngIf="show_numbers">
-                <button *ngFor="let i of createPageRange(maxPage,page)"
-                    [disabled]="i == page"
-                    (click)="page = i"
-                    class="btn btn-default">{{ i }}</button>
-            </div>
-            <button *ngIf="hasNext(maxPage,page)" [disabled]="true" (click)="false" class="btn btn-default hasNext">...</button>
-            <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageForward()" class="btn btn-default pagination-nextpage">&rsaquo;</button>
-            <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageLast()" class="btn btn-default pagination-lastpage">&raquo;</button>
+            <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageForward()" class="btn btn-default pagination-nextpage">
+            	<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</button>
+            <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageLast()" class="btn btn-default pagination-lastpage">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+			</button>
         </div>
     </div>
 </div>
